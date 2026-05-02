@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PegawaiController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -53,3 +54,5 @@ Route::get('idx', function () {
 Route::get('lnktree', function () {
 	return view('linktree');
 });
+
+Route::get('/pegawai/{nama}', [PegawaiController::class, 'index']);
