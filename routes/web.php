@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PegawaiDBController;
+use App\Http\Controllers\bluerayDBController;
 
 Route::get('/', function () {
     return view('menu');
@@ -56,7 +57,7 @@ Route::get('lnktree', function () {
 	return view('linktree');
 });
 
-Route::get('/pegawailama/{nama}', [PegawaiController::class, 'index']);
+Route::get('/pegawailama/{nama}', [PegawaiController::class, 'coba']);
 
 //route CRUD
 Route::get('/pegawai',[PegawaiDBController::class, 'coba']);
@@ -66,3 +67,12 @@ Route::get('/pegawai/edit/{id}',[PegawaiDBController::class, 'edit']);
 Route::post('/pegawai/update',[PegawaiDBController::class, 'update']);
 Route::get('/pegawai/hapus/{id}',[PegawaiDBController::class, 'hapus']);
 Route::get('/pegawai/cari',[PegawaiDBController::class, 'cari']);
+
+// route CRUD Blueray
+Route::get('/blueray', [bluerayDBController::class, 'blueray']);
+Route::get('/blueray/tambah', [bluerayDBController::class, 'tambah']);
+Route::post('/blueray/store', [bluerayDBController::class, 'store']);
+Route::get('/blueray/edit/{id}', [bluerayDBController::class, 'edit']);
+Route::post('/blueray/update', [bluerayDBController::class, 'update']);
+Route::get('/blueray/hapus/{id}', [bluerayDBController::class, 'hapus']);
+Route::get('/blueray/cari', [bluerayDBController::class, 'cari']);
