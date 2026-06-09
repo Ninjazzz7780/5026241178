@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\bluerayDBController;
+use App\Http\Controllers\SiswaDBController;
 
 Route::get('/', function () {
     return view('menu');
@@ -76,3 +77,11 @@ Route::get('/blueray/edit/{id}', [bluerayDBController::class, 'edit']);
 Route::post('/blueray/update', [bluerayDBController::class, 'update']);
 Route::get('/blueray/hapus/{id}', [bluerayDBController::class, 'hapus']);
 Route::get('/blueray/cari', [bluerayDBController::class, 'cari']);
+
+//route CRUD Siswa
+Route::get('/siswa', [SiswaDBController::class, 'index'])->name('siswa.index');
+Route::get('/siswa/create', [SiswaDBController::class, 'create'])->name('siswa.create');
+Route::post('/siswa', [SiswaDBController::class, 'store'])->name('siswa.store');
+Route::get('/siswa/{nrp}/edit', [SiswaDBController::class, 'edit'])->name('siswa.edit');
+Route::put('/siswa/{nrp}', [SiswaDBController::class, 'update'])->name('siswa.update');
+Route::delete('/siswa/{nrp}', [SiswaDBController::class, 'destroy'])->name('siswa.destroy');
