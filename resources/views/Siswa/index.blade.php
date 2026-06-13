@@ -1,5 +1,5 @@
 @extends('templatebt5')
-@section('title', 'Data Siswa')
+@section('judul_halaman', 'Data Siswa')
 @section('konten')
 
     <h2>Data Siswa</h2>
@@ -8,7 +8,7 @@
         <p style="color: green;">{{ session('success') }}</p>
     @endif
 
-    <a href="{{ route('siswa.create') }}">Tambah Siswa</a>
+    <a href="{{ route('siswa.create') }}" class="btn btn-primary mb-3">Tambah Siswa</a>
 
     <br><br>
 
