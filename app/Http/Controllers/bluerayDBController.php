@@ -13,13 +13,13 @@ class bluerayDBController extends Controller
         $blueray = DB::table('blueray')->paginate(5);
 
         // mengirim data blueray ke view
-        return view('blueray', ['blueray' => $blueray]);
+        return view('blueray.blueray', ['blueray' => $blueray]);
     }
 
     // method untuk menampilkan form tambah blueray
     public function tambah()
     {
-        return view('tambahblueray');
+        return view('blueray.tambahblueray');
     }
 
     // method untuk insert data blueray
@@ -39,7 +39,7 @@ class bluerayDBController extends Controller
     {
         $blueray = DB::table('blueray')->where('kodeblueray', $id)->get();
 
-        return view('editblueray', ['blueray' => $blueray]);
+        return view('blueray.editblueray', ['blueray' => $blueray]);
     }
 
     // update data blueray

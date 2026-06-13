@@ -38,6 +38,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/blueray">Tugas Pra EAS</a>
                     </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/keranjangbelanja">Latihan EAS</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#">EAS</a>
                     </li>

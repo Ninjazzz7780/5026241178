@@ -1,18 +1,16 @@
 @extends('templatebt5')
-
-@section('judul_halaman', 'Data Siswa')
-
+@section('title', 'Data Siswa')
 @section('konten')
 
-    <br>
-
-    <a href="{{ route('siswa.create') }}" class="btn btn-primary mb-3">Tambah Data Siswa</a>
+    <h2>Data Siswa</h2>
 
     @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
+        <p style="color: green;">{{ session('success') }}</p>
     @endif
+
+    <a href="{{ route('siswa.create') }}">Tambah Siswa</a>
+
+    <br><br>
 
     <table class="table table-striped table-hover">
         <tr>
@@ -20,30 +18,32 @@
             <th>Nama</th>
             <th>Kelas</th>
             <th>Tanggal Lahir</th>
-            <th>Opsi</th>
+            <th>Aksi</th>
         </tr>
 
-        @foreach ($siswa as $s)
+        @forelse($siswa as $row)
             <tr>
-                <td>{{ $s->NRP }}</td>
-                <td>{{ $s->Nama }}</td>
-                <td>{{ $s->Kelas }}</td>
-                <td>{{ $s->TanggalLahir }}</td>
+                <td>{{ $row->NRP }}</td>
+                <td>{{ $row->Nama }}</td>
+                <td>{{ $row->Kelas }}</td>
+                <td>{{ $row->TanggalLahir }}</td>
                 <td>
-                    <a href="{{ route('siswa.edit', $s->NRP) }}" class="btn btn-warning">Edit</a>
+                    <a href="{{ route('siswa.edit', $row->NRP) }}" class="btn btn-warning">Edit</a>
 
-                    <form action="{{ route('siswa.destroy', $s->NRP) }}" method="POST" style="display:inline;">
+
+                    <form action="{{ route('siswa.destroy', $row->NRP) }}" method="POST" style="display:inline;"
+                        onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                         @csrf
                         @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Hapus</button>
 
-                        <button type="submit" class="btn btn-danger"
-                            onclick="return confirm('Yakin ingin menghapus data ini?')">
-                            Hapus
-                        </button>
                     </form>
                 </td>
             </tr>
-        @endforeach
+        @empty
+            <tr>
+                <td colspan="5">Belum ada data siswa.</td>
+            </tr>
+        @endforelse
     </table>
-
 @endsection

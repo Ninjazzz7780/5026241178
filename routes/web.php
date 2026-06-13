@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\bluerayDBController;
-use App\Http\Controllers\SiswaDBController;
+use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\KeranjangBelanjaDBController;
 
 Route::get('/', function () {
     return view('menu');
@@ -78,10 +79,17 @@ Route::post('/blueray/update', [bluerayDBController::class, 'update']);
 Route::get('/blueray/hapus/{id}', [bluerayDBController::class, 'hapus']);
 Route::get('/blueray/cari', [bluerayDBController::class, 'cari']);
 
-//route CRUD Siswa
-Route::get('/siswa', [SiswaDBController::class, 'index'])->name('siswa.index');
-Route::get('/siswa/create', [SiswaDBController::class, 'create'])->name('siswa.create');
-Route::post('/siswa', [SiswaDBController::class, 'store'])->name('siswa.store');
-Route::get('/siswa/{nrp}/edit', [SiswaDBController::class, 'edit'])->name('siswa.edit');
-Route::put('/siswa/{nrp}', [SiswaDBController::class, 'update'])->name('siswa.update');
-Route::delete('/siswa/{nrp}', [SiswaDBController::class, 'destroy'])->name('siswa.destroy');
+//route CRUD siswa
+Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
+Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
+Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
+Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
+Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
+Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
+
+
+// route CRUD Keranjang Belanja
+Route::get('/keranjangbelanja', [KeranjangBelanjaDBController::class, 'index']);
+Route::get('/keranjangbelanja/beli', [KeranjangBelanjaDBController::class, 'beli']);
+Route::post('/keranjangbelanja/store', [KeranjangBelanjaDBController::class, 'store']);
+Route::get('/keranjangbelanja/batal/{id}', [KeranjangBelanjaDBController::class, 'batal']);

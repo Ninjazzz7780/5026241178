@@ -6,17 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
-class SiswaDBController extends Controller
+class SiswaController extends Controller
 {
     public function index()
     {
         $siswa = DB::table('siswa')->orderBy('NRP')->get();
-        return view('siswa.index', compact('siswa'));
+        return view('Siswa.index', compact('siswa'));
     }
 
     public function create()
     {
-        return view('siswa.create');
+        return view('Siswa.create');
     }
 
     public function store(Request $request)
@@ -46,7 +46,7 @@ class SiswaDBController extends Controller
             abort(404);
         }
 
-        return view('siswa.edit', compact('siswa'));
+        return view('Siswa.edit', compact('siswa'));
     }
 
     public function update(Request $request, $nrp)
