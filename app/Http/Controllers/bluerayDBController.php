@@ -71,6 +71,6 @@ class bluerayDBController extends Controller
             ->where('merkblueray', 'like', "%" . $cari . "%")
             ->paginate(10);
 
-        return view('blueray', ['blueray' => $blueray]);
+        return view('blueray.blueray', ['blueray' => $blueray]);
     }
 }

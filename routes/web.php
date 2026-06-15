@@ -6,6 +6,7 @@ use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\bluerayDBController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\KeranjangBelanjaDBController;
+use App\Http\Controllers\NilaiDBController;
 
 Route::get('/', function () {
     return view('menu');
@@ -16,47 +17,47 @@ Route::get('halo', function () {
 });
 
 Route::get('blog', function () {
-	return view('blog');
+	return view('Tugas.blog');
 });
 
 Route::get('week4', function () {
-	return view('assignment4');
+	return view('Tugas.assignment4');
 });
 
 Route::get('week3', function () {
-	return view('newsweek3');
+	return view('Tugas.newsweek3');
 });
 
 Route::get('news1', function () {
-	return view('news');
+	return view('Tugas.news');
 });
 
 Route::get('resp', function () {
-	return view('responsive');
+	return view('Tugas.responsive');
 });
 
 Route::get('temp', function () {
-	return view('template');
+	return view('Tugas.template');
 });
 
 Route::get('mycss', function () {
-	return view('mycss1');
+	return view('Tugas.mycss1');
 });
 
 Route::get('intro1', function () {
-	return view('intro');
+	return view('Tugas.intro');
 });
 
 Route::get('pert5', function () {
-	return view('pertemuan5');
+	return view('Tugas.pertemuan5');
 });
 
 Route::get('idx', function () {
-	return view('index');
+	return view('Tugas.index');
 });
 
 Route::get('lnktree', function () {
-	return view('linktree');
+	return view('Tugas.linktree');
 });
 
 Route::get('/pegawailama/{nama}', [PegawaiController::class, 'coba']);
@@ -93,3 +94,9 @@ Route::get('/keranjangbelanja', [KeranjangBelanjaDBController::class, 'index']);
 Route::get('/keranjangbelanja/beli', [KeranjangBelanjaDBController::class, 'beli']);
 Route::post('/keranjangbelanja/store', [KeranjangBelanjaDBController::class, 'store']);
 Route::get('/keranjangbelanja/batal/{id}', [KeranjangBelanjaDBController::class, 'batal']);
+
+// route CRUD Nilai Kuliah
+Route::get('/nilaikuliah', [NilaiDBController::class, 'index']);
+Route::get('/nilaikuliah/tambah', [NilaiDBController::class, 'tambah']);
+Route::post('/nilaikuliah/store', [NilaiDBController::class, 'store']);
+

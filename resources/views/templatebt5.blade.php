@@ -24,16 +24,7 @@
                         <a class="nav-link" href="/pegawai">Pegawai</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nama Tabel PR</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/siswa">Siswa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Latihan 1</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Latihan 2</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/blueray">Tugas Pra EAS</a>
@@ -41,6 +32,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/keranjangbelanja">Latihan EAS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/nilaikuliah">Latihan EAS #2</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#">EAS</a>
