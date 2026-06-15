@@ -102,8 +102,8 @@ Route::get('/nilaikuliah/tambah', [NilaiDBController::class, 'tambah']);
 Route::post('/nilaikuliah/store', [NilaiDBController::class, 'store']);
 
 // EasDB
-Route::get('/eas', [EasDBController::class, 'index']);
-Route::get('/eas/view/{kodepegawai}', [EasDBController::class, 'view']);
-Route::get('/eas/tambah', [EasDBController::class, 'tambah']);
-Route::post('/eas/store', [EasDBController::class, 'store']);
+Route::get('/eas', [EasDBController::class, 'index'])->name('eas.index');
+Route::get('/eas/view/{kodepegawai}', [EasDBController::class, 'view'])->name('eas.view');
+Route::get('/eas/tambah', [EasDBController::class, 'tambah'])->name('eas.tambah');
+Route::post('/eas/store', [EasDBController::class, 'store'])->name('eas.store');
 

@@ -14,7 +14,7 @@ class EasDBController extends Controller
         $mypegawai = DB::table('mypegawai')->get();
 
     	// mengirim data eas ke view index
-    	return view('Eas.index', compact('mypegawai'));
+    	return view('eas.index', compact('mypegawai'));
     }
     public function view($kodepegawai)
     {
@@ -22,15 +22,19 @@ class EasDBController extends Controller
         $mypegawai = DB::table('mypegawai')->where('kodepegawai', $kodepegawai)->first();
 
         // mengirim data eas ke view index
-        return view('Eas.view', compact('mypegawai'));
+        return view('eas.view', compact('mypegawai'));
     }
     public function tambah()
     {
         // memanggil view tambah
-        return view('Eas.tambah');
+        return view('eas.tambah');
     }
     public function store(Request $request)
     {
+        $request->validate([
+            'kodepegawai' => 'required|alpha_num|max:9|unique:mypegawai,kodepegawai',
+            'namalengkap' => 'required|alpha|max:50',
+        ]);
         // insert data ke table eas
         DB::table('mypegawai')->insert([
             'kodepegawai' => $request->kodepegawai,
@@ -40,6 +44,6 @@ class EasDBController extends Controller
         ]);
 
         // alihkan halaman ke halaman eas
-        return redirect('/eas');
+        return redirect()->route('eas.index')->with('success', 'Data pegawai berhasil ditambahkan');
     }
 }

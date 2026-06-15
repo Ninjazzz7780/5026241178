@@ -20,8 +20,7 @@
                 <td>{{ $p->divisi }}</td>
                 <td>{{ $p->departmen }}</td>
                 <td>|
-                    <a href="/eas/view/{{ $p->kodepegawai }}" class="btn btn-info">
-                        View
+                    <a href="/eas/view/{{ $p->kodepegawai }}" class="btn btn-info">View</a>
                     </a>
                 </td>
             </tr>
