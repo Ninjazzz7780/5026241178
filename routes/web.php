@@ -7,6 +7,7 @@ use App\Http\Controllers\bluerayDBController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\KeranjangBelanjaDBController;
 use App\Http\Controllers\NilaiDBController;
+use App\Http\Controllers\EasDBController;
 
 Route::get('/', function () {
     return view('menu');
@@ -99,4 +100,10 @@ Route::get('/keranjangbelanja/batal/{id}', [KeranjangBelanjaDBController::class,
 Route::get('/nilaikuliah', [NilaiDBController::class, 'index']);
 Route::get('/nilaikuliah/tambah', [NilaiDBController::class, 'tambah']);
 Route::post('/nilaikuliah/store', [NilaiDBController::class, 'store']);
+
+// EasDB
+Route::get('/eas', [EasDBController::class, 'index']);
+Route::get('/eas/view/{kodepegawai}', [EasDBController::class, 'view']);
+Route::get('/eas/tambah', [EasDBController::class, 'tambah']);
+Route::post('/eas/store', [EasDBController::class, 'store']);
 

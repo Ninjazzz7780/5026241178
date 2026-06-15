@@ -37,7 +37,7 @@
                         <a class="nav-link" href="/nilaikuliah">Latihan EAS #2</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">EAS</a>
+                        <a class="nav-link" href="/eas">EAS</a>
                     </li>
                 </ul>
             </div>
